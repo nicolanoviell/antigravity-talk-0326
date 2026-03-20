@@ -1,0 +1,159 @@
+/* 
+   Pop Art Design System 
+   Vibrant, Bold, High Contrast 
+*/
+
+:root {
+    --pop-pink: #ff00ff;
+    --pop-yellow: #ffff00;
+    --pop-cyan: #00ffff;
+    --pop-orange: #ff6600;
+    --pop-black: #000000;
+    --pop-white: #ffffff;
+    --border-thickness: 4px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--pop-white);
+    font-family: 'Arial Black', 'Helvetica Black', sans-serif;
+    color: var(--pop-black);
+    overflow-x: hidden;
+}
+
+header {
+    background-color: var(--pop-yellow);
+    padding: 3rem 1rem;
+    text-align: center;
+    border-bottom: var(--border-thickness) solid var(--pop-black);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+h1 {
+    font-size: 4rem;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    line-height: 0.9;
+}
+
+h1 .pop {
+    color: var(--pop-pink);
+    text-shadow: 4px 4px 0 var(--pop-cyan);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+#gallery-container {
+    padding: 2rem;
+    min-height: 80vh;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Card Design */
+.card {
+    background-color: var(--pop-white);
+    border: var(--border-thickness) solid var(--pop-black);
+    padding: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:nth-child(4n+1) { background-color: var(--pop-cyan); }
+.card:nth-child(4n+2) { background-color: var(--pop-pink); }
+.card:nth-child(4n+3) { background-color: var(--pop-yellow); }
+.card:nth-child(4n+4) { background-color: var(--pop-orange); }
+
+.card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 10px 10px 0 var(--pop-black);
+}
+
+.image-container {
+    height: 300px;
+    border: var(--border-thickness) solid var(--pop-black);
+    background-color: var(--pop-black);
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.2) saturate(1.5); /* Effetto Pop Art leggero */
+}
+
+.card-info {
+    flex-grow: 1;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    background-color: var(--pop-white);
+    padding: 2px 5px;
+    display: inline-block;
+    border: 2px solid var(--pop-black);
+}
+
+.card p {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Loader */
+.loader {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 10px solid var(--pop-pink);
+    border-top: 10px solid var(--pop-cyan);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--pop-black);
+    color: var(--pop-white);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 { font-size: 2.5rem; }
+}
